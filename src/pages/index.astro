@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Traemos todos los archivos que esten dentro de src/content/log/
+const proyectos = await getCollection('log');
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Home Log</title>
+	</head>
+	<body class="bg-white text-black font-sans antialiased m-0 p-8">
+
+		<header class="max-w-6xl mx-auto mb-16 flex justify-between items-center py-6 border-b border-gray-100">
+			<h1 class="text-xl font-medium tracking-widest uppercase">Tu Nombre / Log</h1>
+			<nav class="space-x-6 text-sm tracking-wide text-gray-500">
+				<a href="/" class="text-black font-semibold">Proyectos</a>
+				<a href="/sobre-mi" class="hover:text-black transition-colors">Info</a>
+			</nav>
+		</header>
+
+		<main class="max-w-6xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+				{proyectos.map(proyecto => (
+					<article class="space-y-4">
+						<img src={proyecto.data.coverUrl} alt={proyecto.data.title} class="w-full aspect-video object-cover" />
+						<div class="space-y-1">
+							<span class="text-xs uppercase tracking-widest text-gray-400">{proyecto.data.category}</span>
+							<h2 class="text-lg font-normal tracking-tight text-black">{proyecto.data.title}</h2>
+						</div>
+					</article>
+				))}
+			</div>
+		</main>
+
+	</body>
+</html>

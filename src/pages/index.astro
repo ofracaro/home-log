@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
+import '../styles/global.css';
 
 // Traemos todos los archivos que esten dentro de src/content/log/
 const proyectos = await getCollection('log');
+const proyectosOrdenados = proyectos.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <html lang="es">

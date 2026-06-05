@@ -1,16 +1,15 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders'; // <-- Cambió la procedencia del loader a 'astro/loaders'
 
 const logCollection = defineCollection({
-  type: 'content',
+  // Esta es la sintaxis oficial actual para cargar colecciones de Markdown locales
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/log" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
-    // Definimos los nichos usando un enumerador estricto
     category: z.enum(['audiovisual', 'investigacion', 'magazine', 'producto']),
-    // URL de la imagen de portada o loop de video hospedado en Supabase/Cloudinary
     coverUrl: z.string(),
-    // Campos opcionales (por si un videoclip lleva rol o cliente, pero una investigación no)
     rol: z.string().optional(),
     client: z.string().optional(),
   }),

@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from 'astro:content';
+import '../../styles/global.css';
+
+// 1. Le decimos a Astro qué páginas tiene que generar en base a tus archivos Markdown
+export async function getStaticPaths() {
+	const proyectos = await getCollection('log');
+	return proyectos.map(proyecto => ({
+		params: { id: proyecto.id },
+		props: { proyecto },
+	}));
+}
+
+// 2. Recuperamos los datos del proyecto específico
+const { proyecto } = Astro.props;
+const { Content } = await render(proyecto);
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+		<title>{proyecto.data.title} / L.O.C.F.</title>
+	</head>
+	<body class="bg-[#fcfcfc] text-[#111] antialiased m-0 p-6 md:p-16" style="font-family: 'Inter', sans-serif;">
+
+		<!-- Encabezado de retorno clásico de bitácora -->
+		<header class="max-w-4xl mx-auto mb-16 flex justify-between items-center py-6 border-b border-gray-200/60">
+			<a href="/" class="text-xs tracking-[0.2em] uppercase font-medium text-gray-400 hover:text-black transition-colors" style="font-family: 'Cinzel', serif;">
+				← Volver al Archivo
+			</a>
+			<span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">
+				{proyecto.data.category} // {proyecto.data.date.toLocaleDateString('es-AR', { year: 'numeric', month: 'long' })}
+			</span>
+		</header>
+
+		<!-- Contenido de la Investigación -->
+		<main class="max-w-3xl mx-auto space-y-12">
+			<!-- Título Principal -->
+			<h1 class="text-3xl md:text-5xl font-normal tracking-tight leading-tight text-gray-950" style="font-family: 'Playfair Display', serif;">
+				{proyecto.data.title}
+			</h1>
+
+			<!-- Imagen de Portada Expandida -->
+			<div class="overflow-hidden bg-gray-50 aspect-[16/9] w-full my-8">
+				<img src={proyecto.data.coverUrl} alt={proyecto.data.title} class="w-full h-full object-cover grayscale contrast-[1.05]" />
+			</div>
+
+			<!-- Texto del Markdown renderizado con estilos de bitácora limpia -->
+			<div class="prose prose-neutral max-w-none text-gray-800 leading-relaxed tracking-wide space-y-6 font-light">
+				<Content />
+			</div>
+		</main>
+
+	</body>
+</html>

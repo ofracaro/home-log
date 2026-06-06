@@ -1,7 +1,7 @@
 ---
 title: "Relevamiento de Faros de la Provincia de Buenos Aires"
-description: "Estudio técnico y registro visual de los principales sistemas de señalización marítima en las costas bonaerenses."
-date: 2026-02-15
+description: "Faro Claromeco, localidad de Claromeco, señalización marítima en las costas bonaerenses."
+date: 2025-02-15
 category: "visita"
 coverUrl: "./claromeco_01.jpg"
 ---
@@ -13,3 +13,4 @@ Este registro documenta las características estructurales, el alcance lumínico
 ## Notas de Campo
 * **Ubicación:** Coordenadas de posicionamiento costero.
 * **Equipo:** Instrumental de radiofrecuencia y registro fotográfico de autor.
+

@@ -39,7 +39,7 @@ const proyectosOrdenados = proyectos.sort((a, b) => b.data.date.valueOf() - a.da
 						<a href={`/log/${proyecto.id}`} class="block space-y-5">
 
 							<!-- Contenedor de imagen corregido y limpio -->
-							<div class="overflow-hidden bg-gray-50 aspect-[16/10] w-full">
+							<div class="overflow-hidden bg-gray-50 aspect-[16/10] w-full max-w-sm h-[450px] mr-auto">
 								<Image
 									src={proyecto.data.coverUrl}
 									alt={proyecto.data.title}

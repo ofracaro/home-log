@@ -29,3 +29,8 @@ git add .
 git commit -m "Esquema de datos, primer proyecto y Home estilo Vasari"
 git push origin main
 
+git add .
+git commit -m "Fix definitivo: importación de loaders de Astro 6"
+git push origin main
+
+

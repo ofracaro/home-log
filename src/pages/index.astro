@@ -33,40 +33,38 @@ const proyectosOrdenados = proyectos.sort((a, b) => b.data.date.valueOf() - a.da
 	</nav>
 </header>
 
-		<main class="max-w-6xl mx-auto">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-				{proyectosOrdenados.map(proyecto => (
-					<article class="group cursor-pointer space-y-5">
-						<!-- Enlace dinámico al detalle del proyecto -->
-						<a href={`/log/${proyecto.id}`} class="block space-y-5">
+<main class="max-w-6xl mx-auto">
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+		{proyectosOrdenados.map(proyecto => (
+			<article class="group cursor-pointer space-y-5 max-w-sm mr-auto">
+				<a href={`/log/${proyecto.id}`} class="block space-y-5">
 
-							<!-- Contenedor de imagen corregido y limpio -->
-							<div class="overflow-hidden bg-gray-50 aspect-[16/10] w-full max-w-sm h-[550px] mr-auto">
-								<Image
-									src={proyecto.data.coverUrl}
-									alt={proyecto.data.title}
-									class="w-full h-full object-contain grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
-								/>
-							</div>
+					<div class="overflow-hidden bg-gray-50 aspect-[4/5] w-full">
+						<Image
+							src={proyecto.data.coverUrl}
+							alt={proyecto.data.title}
+							class="w-full h-full object-cover grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+						/>
+					</div>
 
-							<div class="space-y-2 pt-1">
-								<div class="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-gray-400">
-									<span>{proyecto.data.category}</span>
-									<span>{proyecto.data.date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short' })}</span>
-								</div>
-								<h2 class="text-xl font-normal tracking-tight text-gray-950 group-hover:text-gray-600 transition-colors" style="font-family: 'Playfair Display', serif;">
-									{proyecto.data.title}
-								</h2>
-								<p class="text-sm text-gray-500 font-light leading-relaxed tracking-wide max-w-xl">
-									{proyecto.data.description}
-								</p>
-							</div>
+					<div class="space-y-2 pt-1">
+						<div class="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-gray-400">
+							<span>{proyecto.data.category}</span>
+							<span>{proyecto.data.date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short' })}</span>
+						</div>
+						<h2 class="text-xl font-normal tracking-tight text-gray-950 group-hover:text-gray-600 transition-colors" style="font-family: 'Playfair Display', serif;">
+							{proyecto.data.title}
+						</h2>
+						<p class="text-sm text-gray-500 font-light leading-relaxed tracking-wide">
+							{proyecto.data.description}
+						</p>
+					</div>
 
-						</a>
-					</article>
-				))}
-			</div>
-		</main>
+				</a>
+			</article>
+		))}
+	</div>
+</main>
 
 	</body>
 </html>

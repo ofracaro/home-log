@@ -6,11 +6,11 @@ category: "casual"
 coverUrl: "./denver-01.jpg"
 ---
 
-# Vista de Trabajo
+# Viaje 2018
 
 Ciudad alejada, casas antiguas en las afueras de Denver. cerca de Vail.
 
 ## Notas de Campo
-* **Ubicación:** Coordenadas de posicionamiento.
-* **Equipo:** n/a..
+* **Ubicación:**
+* **Equipo:**
 

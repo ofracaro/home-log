@@ -6,11 +6,11 @@ category: "casual"
 coverUrl: "./miki-01.jpg"
 ---
 
-# Relevamiento Técnico de Señalización
+# Día de playa
 
 Foto en la playa, San Clemente del Tuyu, Buenos Aires.
 
 ## Notas de Campo
-* **Ubicación:** Coordenadas de posicionamiento costero.
+* **Ubicación:**
 * **Equipo:**
 

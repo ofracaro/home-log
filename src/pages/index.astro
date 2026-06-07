@@ -9,50 +9,58 @@ const proyectosOrdenados = proyectos.sort((a, b) => b.data.date.valueOf() - a.da
 ---
 
 <html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
 
-		<!-- GOOGLE FONTS -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
 
-		<title>Luis Omar Fracaro / LOGS</title>
-	</head>
-	<body class="bg-white text-black font-sans antialiased m-0 p-8">
+	<!-- GOOGLE FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+		rel="stylesheet">
 
-<header class="max-w-6xl mx-auto mb-16 flex justify-between items-center py-6 border-b border-gray-100">
-	<h1 class="text-xl font-light tracking-[0.25em] uppercase text-gray-900">
-		Luis Omar Fracaro <span class="text-gray-300 font-extralight">/</span> Log
-	</h1>
-	<nav class="space-x-6 text-sm tracking-wide text-gray-500">
-		<a href="/" class="text-black font-medium">Proyectos</a>
-		<a href="/sobre-mi" class="hover:text-black transition-colors">Info</a>
-	</nav>
-</header>
+	<title>Luis Omar Fracaro / LOGS</title>
+</head>
 
-<main class="max-w-6xl mx-auto">
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-		{proyectosOrdenados.map(proyecto => (
+<body class="bg-white text-black font-sans antialiased m-0 p-8">
+
+	<header class="max-w-6xl mx-auto mb-16 flex justify-between items-center py-6 border-b border-gray-100">
+		<h1 class="text-xl font-light tracking-[0.25em] uppercase text-gray-900">
+			Luis Omar Fracaro <span class="text-gray-300 font-extralight">/</span> Log
+		</h1>
+		<nav class="space-x-6 text-sm tracking-wide text-gray-500">
+			<a href="/" class="text-black font-medium">Proyectos</a>
+			<a href="/" class="text-black font-medium">Radioaficion</a>
+			<a href="/" class="text-black font-medium">Fotografia</a>
+			<a href="/" class="text-black font-medium">Navegacion</a>
+			<a href="/" class="text-black font-medium">Musica</a>
+			<a href="/sobre-mi" class="hover:text-black transition-colors">Info</a>
+		</nav>
+	</header>
+
+	<main class="max-w-6xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+			{proyectosOrdenados.map(proyecto => (
 			<article class="group cursor-pointer space-y-5 max-w-sm mr-auto">
 				<a href={`/log/${proyecto.id}`} class="block space-y-5">
 
 					<div class="overflow-hidden bg-gray-50 aspect-[4/5] w-full">
-						<Image
-							src={proyecto.data.coverUrl}
-							alt={proyecto.data.title}
-							class="w-full h-full object-cover grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
-						/>
+						<Image src={proyecto.data.coverUrl} alt={proyecto.data.title}
+							class="w-full h-full object-cover grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out" />
 					</div>
 
 					<div class="space-y-2 pt-1">
-						<div class="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-gray-400">
+						<div
+							class="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-gray-400">
 							<span>{proyecto.data.category}</span>
-							<span>{proyecto.data.date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short' })}</span>
+							<span>{proyecto.data.date.toLocaleDateString('es-AR', { year: 'numeric', month: 'short'
+								})}</span>
 						</div>
-						<h2 class="text-xl font-normal tracking-tight text-gray-950 group-hover:text-gray-600 transition-colors" style="font-family: 'Playfair Display', serif;">
+						<h2 class="text-xl font-normal tracking-tight text-gray-950 group-hover:text-gray-600 transition-colors"
+							style="font-family: 'Playfair Display', serif;">
 							{proyecto.data.title}
 						</h2>
 						<p class="text-sm text-gray-500 font-light leading-relaxed tracking-wide">
@@ -62,9 +70,10 @@ const proyectosOrdenados = proyectos.sort((a, b) => b.data.date.valueOf() - a.da
 
 				</a>
 			</article>
-		))}
-	</div>
-</main>
+			))}
+		</div>
+	</main>
 
-	</body>
+</body>
+
 </html>
